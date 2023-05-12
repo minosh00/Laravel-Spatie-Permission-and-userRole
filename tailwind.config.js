@@ -13,6 +13,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            screens: {
+                'dark-mode': {'raw': '(prefers-color-scheme: dark)'},
+              },
         },
     },
 
