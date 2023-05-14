@@ -10,7 +10,7 @@ class RolesController extends Controller
 {
   public  function index(){
 
-    $roles = Role::all();
+    $roles = Role::whereNotIn('name', ['admin'])->get();
 
   return view('admin.roles.index',compact('roles'));
   }
@@ -28,6 +28,17 @@ public function store(Request $request){
 
 }
 
+public function edit(Role $role){
+     return view('admin.roles.edit' ,  compact('role'));
+}
+
+public function update(Request $request, Role $role){
+    $validated = $request->validate(['name' => ['required', 'min:3'] ]);
+    $role->update($validated);
+    return  to_route('admin.roles.index');
+
 
 }
 
+
+}
