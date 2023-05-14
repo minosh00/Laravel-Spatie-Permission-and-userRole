@@ -15,6 +15,7 @@ class RolesController extends Controller
   return view('admin.roles.index',compact('roles'));
   }
 
+
 public function create(){
     return view('admin.roles.create');
 }
@@ -40,5 +41,9 @@ public function update(Request $request, Role $role){
 
 }
 
-
+public function destroy(Role $role){
+    $role->delete();
+    return back()->with('message', 'role deleted');
 }
+}
+
