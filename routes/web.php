@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\RolesController;
+use App\Http\Controllers\Admin\PermissionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +25,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->middleware(['auth', 'role:admin'])->name('admin.index');
+Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
+    Route::get('/', [IndexController::class, 'index']) ->name('index');
+    Route::resource('/roles',RolesController::class);
+    Route::resource('/permissions',PermissionController::class);
+
+});
 
 
 
