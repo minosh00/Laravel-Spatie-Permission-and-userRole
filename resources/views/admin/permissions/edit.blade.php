@@ -35,7 +35,7 @@
                 <div class=" flex  space-x-2   mt-4 p-2">
                     @if ($permission->roles)
                     @foreach ($permission->roles as $permission_role)
-                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md" method="POST" action="{{ route('admin.permissions.roles.remove', [$permission->id, $permission_role->id]) }}" onsubmit="return confirm('Are you sure?');">
+                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md" method="POST" onsubmit="return confirm('Are you sure?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">{{$permission_role->name}}</button>
@@ -46,7 +46,7 @@
 
                 </div>
                 <div class="max-w-xl mt-6">
-                <form method="POST" action="{{route('admin.permissions.roles', $permission->id) }}">
+                <form method="POST" >
                             @csrf
                             <div class="sm:col-span-6">
                                 <label for="role"
