@@ -1,9 +1,10 @@
 <x-admin-layout>
+
     <div class="py-12 w-full">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
-                <div class="flex  p-2">
-                    <a href="{{route('admin.roles.index')}}" class="px-4 py-2 bg-green-700 hover:bg-green-500 text-slate-100 rounded-md"> Role index page </a>
+                <div class="flex p-2">
+                    <a href="{{ route('admin.roles.index') }}" class="px-4 py-2 bg-green-700 hover:bg-green-500 text-slate-100 rounded-md">Role Index</a>
                 </div>
                 <div class="flex flex-col">
                     <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
@@ -16,14 +17,12 @@
                             </div>
                             @error('name') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                           </div>
-                          </br>
                           <div class="sm:col-span-6 pt-5">
-                            <button type="submit" class="px-4 py-2 bg-green-700 hover:bg-green-500 text-slate-100 rounded-md">Create</button>
+                            <button type="submit" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md">Create</button>
                           </div>
                         </form>
                       </div>
 
-                </div>
                 </div>
 
             </div>
